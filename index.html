@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Explorer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <div class="logo">
+          <img src="Poké_Ball_icon.svg.png" alt="logo" />
+          <h1>Pokédex</h1>
+        </div>
+
+        <nav id="nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#pokemon">Pokémon</a></li>
+            <li><a href="#">Attackdex</a></li>
+          </ul>
+        </nav>
+
+        <div id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="home">
+      <h2>Discover Different Pokémon</h2>
+      <p>Every refresh shows new Pokémon</p>
+    </section>
+
+    <section id="pokemon">
+      <h2 class="section-title">Pokémon List</h2>
+      <div id="pokemonGrid" class="grid"></div>
+    </section>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal">✖</span>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Pokemon inc</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
