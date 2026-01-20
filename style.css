@@ -40,9 +40,14 @@ header {
 }
 
 .logo img {
+  cursor: pointer;
   max-width: 50px;
   max-height: 50px;
-  animation: spin 2s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+.logo img:hover {
+  animation-play-state: paused;
 }
 
 nav ul {
