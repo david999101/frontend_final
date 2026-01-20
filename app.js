@@ -11,15 +11,8 @@ burger.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-});
-
-const MAX_POKEMON = 1010;
+const MAX_POKEMON = 1025;
+const SHINY_RATE = 4096;
 
 function getRandomIds(count) {
   const ids = new Set();
@@ -37,13 +30,19 @@ async function loadPokemons() {
     const pokemon = await response.json();
 
     const types = pokemon.types.map((t) => t.type.name).join(", ");
+    const isShiny = Math.floor(Math.random() * SHINY_RATE) === 0;
+    const shinyName = isShiny ? "shiny" : "";
+
+    const imageSrc = isShiny
+      ? pokemon.sprites.front_shiny
+      : pokemon.sprites.front_default;
 
     const card = document.createElement("div");
     card.className = "card";
 
     card.innerHTML = `
-      <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
-      <h3>${pokemon.name}</h3>
+      <img src="${imageSrc}" alt="${pokemon.name}">
+      <h3>${shinyName} ${pokemon.name}</h3>
       <p><strong>Type:</strong> ${types}</p>
       <button>More info</button>
     `;
